@@ -1,6 +1,7 @@
 package program;
 
 import javafx.fxml.FXML;
+import program.tickable.FIFOPlanner;
 import program.tickable.Processor;
 import program.tickable.TaskGenerator;
 
@@ -18,19 +19,21 @@ public class Controller {
         system.addUnit(pr0);
         processors.add(pr0);
 
-//        Processor pr1= new Processor(1, 1);
-//        system.addUnit(pr1);
-//        processors.add(pr1);
-//
-//        Processor pr2= new Processor(2, 5);
-//        system.addUnit(pr2);
-//        processors.add(pr2);
+        Processor pr1= new Processor(1, 1);
+        system.addUnit(pr1);
+        processors.add(pr1);
 
+        Processor pr2= new Processor(2, 5);
+        system.addUnit(pr2);
+        processors.add(pr2);
 
-        int minCompl = 10 * minFrequency(processors); //change to gui
-        int maxCompl = 200 * maxFrequency(processors); //change to gui
+        int minCompl = 10;//10 * minFrequency(processors); //change to gui
+        int maxCompl = 20;//200 * maxFrequency(processors); //change to gui
         TaskGenerator taskGenerator = new TaskGenerator(minCompl, maxCompl);
         system.addUnit(taskGenerator);
+
+        FIFOPlanner fifoPlanner = new FIFOPlanner();
+        system.addUnit(fifoPlanner);
 
         system.run();
     }

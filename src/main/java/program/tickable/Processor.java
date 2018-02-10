@@ -5,8 +5,8 @@ import program.Task;
 
 
 public class Processor extends Unit{
-    int id;
-    Task task;
+    private int id;
+    private Task task;
 
     int num;
 
@@ -15,17 +15,47 @@ public class Processor extends Unit{
         this.id = id;
     }
 
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public boolean isFree(){
+        return task == null;
+    }
+
     @Override
     public void tick(double step) {
-//        if (task == null)
-//            return;
-//
-//        executeTask();
-        System.out.println("Processor "+id+" ticked: "+(++num));
+        if (task == null){
+            System.out.println("Processor "+id+" waiting ||"+(++num));
+            return;
+        }
+
+        executeTask();
+        System.out.println("Processor "+id+" executed task  ||"+(++num));
     }
 
     private void executeTask() {
-        this.getSystem().operCounter++;
+        getSystem().operCounter++;
+        task.incOperDone();
+        if (task.finshed()){
+            System.out.println("Task "+task+" finished");
+            task = null;
+
+        }
     }
 
+    @Override
+    public String toString() {
+        return "Processor{" +
+                "id=" + id +
+                '}';
+    }
 }

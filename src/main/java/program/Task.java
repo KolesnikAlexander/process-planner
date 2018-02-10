@@ -23,4 +23,23 @@ public class Task {
     public int getOperDone() {
         return operDone;
     }
+
+    public void incOperDone(){
+        operDone++;
+    }
+
+    public boolean finshed(){
+        return operDone >= complexity;
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "complexity=" + complexity +
+                ", processors=" + processors +
+                ", operDone=" + operDone +
+                '}';
+    }
+
+
 }

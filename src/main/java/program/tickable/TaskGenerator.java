@@ -3,10 +3,8 @@ package program.tickable;
 import program.CompSystem;
 import program.Task;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class TaskGenerator extends Unit{
     private int num;
@@ -28,15 +26,24 @@ public class TaskGenerator extends Unit{
         Set<Integer> procesors = generateProcessors();
         Task task = new Task(complexity, procesors);
         this.getSystem().tasks.add(task);
-        System.out.println("Task generated, complexity:"+complexity+" ------------ "+(++num));
+        System.out.println("Task generated, complexity:"+complexity+",processors: "+procesors+" ------------ || "+(++num));
     }
 
     private Set<Integer> generateProcessors() {
-        return null;
+        HashSet<Integer> result = new HashSet<>();
+        int numOfProc = this.getSystem().getProcessors().size();
+        for (int i = 0; i < numOfProc; i++){
+            if (new Random().nextBoolean())
+                result.add(i);
+        }
+        if (result.isEmpty())
+            result.add(new Random().nextInt(numOfProc));
+        return result;
     }
 
     private int generateComplexity() {
-        return  minCompl + new Random().nextInt(maxCompl+1); // [low..upp];
+        return ThreadLocalRandom.current().nextInt(minCompl, maxCompl + 1);
+       // return  minCompl + new Random().nextInt(maxCompl+1); // [low..upp];
     }
 
 }

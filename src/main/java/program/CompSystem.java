@@ -15,7 +15,25 @@ public class CompSystem {
     public List<Task> tasks;
     public int operCounter;
 
+    public List<Unit> getUnits() {
+        return units;
+    }
+
+    public List<Processor> getProcessors() {
+        return processors;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public int getOperCounter() {
+        return operCounter;
+    }
+
     void run(){
+        System.out.println("Processors list:");
+        System.out.println(processors);
         double i = 0;
         while(i < time){
             for (Unit unit : units) {
