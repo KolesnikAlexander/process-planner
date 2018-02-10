@@ -1,5 +1,6 @@
 package program.tickable;
 
+import program.CompSystem;
 import program.Task;
 
 
@@ -16,17 +17,15 @@ public class Processor extends Unit{
 
     @Override
     public void tick(double step) {
+//        if (task == null)
+//            return;
+//
+//        executeTask();
         System.out.println("Processor "+id+" ticked: "+(++num));
     }
 
-    public int getId() {
-        return id;
+    private void executeTask() {
+        this.getSystem().operCounter++;
     }
 
-    public boolean equals(Processor processor) {
-        return this.id == processor.id;
-    }
-    public boolean equals(int id){
-        return this.id == id;
-    }
 }

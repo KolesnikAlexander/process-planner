@@ -1,5 +1,6 @@
 package program;
 
+import program.tickable.Processor;
 import program.tickable.Unit;
 
 import java.util.LinkedList;
@@ -9,6 +10,7 @@ public class CompSystem {
     private double time;
     private double step;
     private List<Unit> units;
+    private List<Processor> processors;
 
     public List<Task> tasks;
     public int operCounter;
@@ -23,12 +25,21 @@ public class CompSystem {
         }
     }
 
-    public CompSystem(double time, double step, List<Unit> units) {
+    public CompSystem(double time, double step) {
         this.time = time;
         this.step = step;
-        this.units = units;
-        tasks = new LinkedList<>();
-        operCounter = 0;
+        this.units = new LinkedList<>();
+        this.tasks = new LinkedList<>();
+        this.processors = new LinkedList<>();
+        this.operCounter = 0;
+    }
+
+    public void addUnit(Unit unit){
+        unit.setSystem(this);
+        units.add(unit);
+        if (unit instanceof Processor){
+            processors.add((Processor) unit);
+        }
     }
 
 }
