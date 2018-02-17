@@ -1,7 +1,8 @@
 package program;
 
-import program.tickable.Processor;
-import program.tickable.Unit;
+import program.unit.Processor;
+import program.unit.ProcessorPlanner;
+import program.unit.Unit;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -14,6 +15,8 @@ public class CompSystem {
 
     public List<Task> tasks;
     public int operCounter;
+    public int taskCounter;
+    public int taskAmount;
 
     public List<Unit> getUnits() {
         return units;
@@ -56,6 +59,10 @@ public class CompSystem {
         unit.setSystem(this);
         units.add(unit);
         if (unit instanceof Processor){
+            processors.add((Processor) unit);
+        }
+        if(unit instanceof ProcessorPlanner){
+            ((ProcessorPlanner) unit).planner.setSystem(this);
             processors.add((Processor) unit);
         }
     }

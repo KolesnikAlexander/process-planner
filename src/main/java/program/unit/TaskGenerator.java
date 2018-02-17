@@ -1,6 +1,5 @@
-package program.tickable;
+package program.unit;
 
-import program.CompSystem;
 import program.Task;
 
 import java.util.*;
@@ -27,6 +26,7 @@ public class TaskGenerator extends Unit{
         Task task = new Task(complexity, procesors);
         this.getSystem().tasks.add(task);
         System.out.println("Task generated, complexity:"+complexity+",processors: "+procesors+" ------------ || "+(++num));
+        this.getSystem().taskAmount++;
     }
 
     private Set<Integer> generateProcessors() {

@@ -1,4 +1,4 @@
-package program.tickable;
+package program.unit;
 
 import program.CompSystem;
 
@@ -34,6 +34,11 @@ public abstract class Unit {
         tick(step);
         timePassed = 0;
     }
+
+    public double getOperationTime() {
+        return operationTime;
+    }
+
     protected abstract void tick(double step);
 
 }

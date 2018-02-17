@@ -1,6 +1,5 @@
-package program.tickable;
+package program.unit;
 
-import program.CompSystem;
 import program.Task;
 
 
@@ -48,7 +47,7 @@ public class Processor extends Unit{
         if (task.finshed()){
             System.out.println("Task "+task+" finished");
             task = null;
-
+            this.getSystem().taskCounter++;
         }
     }
 
