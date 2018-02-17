@@ -9,18 +9,23 @@ public class TaskGenerator extends Unit{
     private int num;
     private int minCompl;
     private int maxCompl;
+    private int taskHappenProbability;
 //    public static final double procProbability ;
 
-    public TaskGenerator(int minCompl, int maxCompl) {
+    public TaskGenerator(int minCompl, int maxCompl, int taskHappenProbability) {
         super(1);
         this.minCompl = minCompl;
         this.maxCompl = maxCompl;
+        this.taskHappenProbability = taskHappenProbability;
 
         System.out.println("TASK GENERATOR{ MIN = "+minCompl+", MAX = "+maxCompl+" }");
     }
 
     @Override
     protected void tick(double step) {
+        if(new Random().nextInt(100) >= taskHappenProbability)
+            return;
+
         int complexity = generateComplexity();
         Set<Integer> procesors = generateProcessors();
         Task task = new Task(complexity, procesors);

@@ -7,6 +7,6 @@ public class Controller {
 
     @FXML
     public void initialize() {
-        Model.execute();
+        //Model.execute();
     }
 }
