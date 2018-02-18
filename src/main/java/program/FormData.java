@@ -10,6 +10,10 @@ public class FormData {
     private int minComplexity;
     private int maxComplexity;
 
+    //For processor-planner
+    private int executionTime;
+    private int planningTime;
+
     public FormData() {
     }
 
@@ -51,5 +55,21 @@ public class FormData {
 
     public void setMaxComplexity(int maxComplexity) {
         this.maxComplexity = maxComplexity;
+    }
+
+    public int getExecutionTime() {
+        return executionTime;
+    }
+
+    public void setExecutionTime(int executionTime) {
+        this.executionTime = executionTime;
+    }
+
+    public int getPlanningTime() {
+        return planningTime;
+    }
+
+    public void setPlanningTime(int planningTime) {
+        this.planningTime = planningTime;
     }
 }
