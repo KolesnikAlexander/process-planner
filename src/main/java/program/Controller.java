@@ -24,6 +24,8 @@ public class Controller {
     public TextField minCompl;
     public TextField maxCompl;
     public Text resultText;
+    public TextField planningTextField;
+    public TextField execTextField;
 
     @FXML
     public void initialize() {
@@ -56,6 +58,16 @@ public class Controller {
         showResult(res);
     }
 
+    public void adjPlannerProcClicked(MouseEvent mouseEvent) {
+        FormData formData = new FormData();
+        formData.setMode(3);
+        formData.setExecutionTime(Integer.parseInt(execTextField.getText()));
+        formData.setPlanningTime(Integer.parseInt(planningTextField.getText()));
+        makeFormData(formData);
+        ModelResult res = Model.execute(formData);
+        showResult(res);
+    }
+
     private void makeFormData(FormData formData){
         formData.setTaskHappenProbability(Integer.parseInt(taskProbabilty.getText()));
         formData.setMinComplexity(Integer.parseInt(minCompl.getText()));
@@ -73,4 +85,5 @@ public class Controller {
     private void showResult(ModelResult result) {
         resultText.setText(result.show());
     }
+
 }

@@ -25,6 +25,9 @@ public class Launcher {
             case 2:
                 mode2(system, data);
                 break;
+            case 3:
+                mode2(system, data);
+                break;
             default:
                 break;
         }
@@ -49,6 +52,8 @@ public class Launcher {
 
     private static ModelResult makeResult(CompSystem system, FormData data) {
         ModelResult modelResult = new ModelResult();
+
+        modelResult.setMode(data.getMode());
 
         modelResult.setTasksDone(system.taskCounter);
         modelResult.setTaskAmount(system.taskAmount);
@@ -75,6 +80,17 @@ public class Launcher {
                 break;
             case 2:
                 double executionTimeRation = data.getExecutionTime()/
+                        (data.getExecutionTime() + data.getPlanningTime());
+
+                realOperAmount = (int)((data.getPrFrequencies().get(0)
+                        +data.getPrFrequencies().get(1)
+                        +data.getPrFrequencies().get(2)
+                        +data.getPrFrequencies().get(3)
+                        +data.getPrFrequencies().get(4)*executionTimeRation)/////
+                        *10000);
+                break;
+            case 3:
+                       executionTimeRation = data.getExecutionTime()/
                         (data.getExecutionTime() + data.getPlanningTime());
 
                 realOperAmount = (int)((data.getPrFrequencies().get(0)
@@ -142,7 +158,7 @@ public class Launcher {
         Processor pr2= new Processor(2,  data.getPrFrequencies().get(2));
         system.addUnit(pr2);
 
-        Processor pr3= new ProcessorPlanner(3,  data.getPrFrequencies().get(4), 4, 20);
+        Processor pr3= new ProcessorPlanner(3,  data.getPrFrequencies().get(4), data.getPlanningTime(), data.getExecutionTime());
         system.addUnit(pr3);
     }
 

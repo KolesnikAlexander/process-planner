@@ -1,6 +1,7 @@
 package program.unit;
 
 public class ModelResult {
+    private int mode;
     private int taskAmount;
     private int tasksDone;
 
@@ -76,6 +77,14 @@ public class ModelResult {
         this.realEfficiency = realEfficiency;
     }
 
+    public int getMode() {
+        return mode;
+    }
+
+    public void setMode(int mode) {
+        this.mode = mode;
+    }
+
     @Override
     public String toString() {
         return "ModelResult{" +
@@ -90,17 +99,33 @@ public class ModelResult {
                 '}';
     }
     public String show(){
-        return  "TasksDone: " + tasksDone +"\n"+
-                "TaskAmount: " + taskAmount +"\n"+
+        String val = "";
+        switch (mode){
+            case 0:
+                val = "FIFO\n==================\n";
+                break;
+            case 1:
+                val = "DEDICATED PLANNER\n==================\n";
+                break;
+            case 2:
+                val = "PLANNER/PROCESSOR\n==================\n";
+                break;
+            case 3:
+                val = "ADJUSTABLE PLANNER/PROCESSOR\n==================\n";
+                break;
+        }
+
+        return  val+"Tasks done: " + tasksDone +"\n"+
+                "Amount of tasks: " + taskAmount +"\n"+
                 "\n"+
-                "TasksDonePercentage: " + tasksDonePercentage +"\n"+
+                "Percentage of the tasks done: " + tasksDonePercentage +"\n"+
                 "--------------------------------"+"\n"+
-                "OperDone: " + operDone +"\n"+
-                "OperTotalAmount: " + operTotalAmount +"\n"+
-                "OperRealAmount: " + operRealAmount +"\n"+
+                "Operations done: " + operDone +"\n"+
+                "Total amount of operations: " + operTotalAmount +"\n"+
+                "Real amount of operations: " + operRealAmount +"\n"+
                 "\n"+
                 "Total efficiency: " + efficiency +"\n"+
-                "RealEfficiency: " + realEfficiency +"\n";
+                "Real efficiency: " + realEfficiency +"\n";
 
     }
 }

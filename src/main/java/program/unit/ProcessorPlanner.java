@@ -19,7 +19,6 @@ public class ProcessorPlanner extends Processor{
 
     @Override
     public void tick(double step) {
-        System.out.println("I TICKEDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
         timePassed+=getOperationTime();
         if(isPlannerNow){
             planner.tick(step);
