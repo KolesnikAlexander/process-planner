@@ -22,12 +22,9 @@ public class FIFOPlanner extends Unit {
             if(processor.isFree() && task.getProcessors().contains(processor.getId())){
                 processor.setTask(task);
                 tasks.remove(task);
-                System.out.println("PROCESSOR: "+processor);
                 break;
             }
 
         }
-
-        System.out.println("FIFO PLANNED TASK >>>>>>>>>>>"+(++num));
     }
 }

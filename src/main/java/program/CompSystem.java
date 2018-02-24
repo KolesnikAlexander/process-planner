@@ -35,8 +35,6 @@ public class CompSystem {
     }
 
     void run(){
-        System.out.println("Processors list:");
-        System.out.println(processors);
         double i = 0;
         while(i < time){
             for (Unit unit : units) {

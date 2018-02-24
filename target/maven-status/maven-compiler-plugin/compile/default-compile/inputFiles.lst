@@ -1,6 +1,14 @@
 /home/alexander/Documents/IntellijProjects/TaskManager/src/main/java/program/Task.java
-/home/alexander/Documents/IntellijProjects/TaskManager/src/main/java/program/tickable/Processor.java
-/home/alexander/Documents/IntellijProjects/TaskManager/src/main/java/program/Main.java
+/home/alexander/Documents/IntellijProjects/TaskManager/src/main/java/program/unit/Unit.java
+/home/alexander/Documents/IntellijProjects/TaskManager/src/main/java/program/unit/FIFOPlanner.java
+/home/alexander/Documents/IntellijProjects/TaskManager/src/main/java/program/Launcher.java
+/home/alexander/Documents/IntellijProjects/TaskManager/src/main/java/program/unit/ModelResult.java
+/home/alexander/Documents/IntellijProjects/TaskManager/src/main/java/program/unit/Processor.java
 /home/alexander/Documents/IntellijProjects/TaskManager/src/main/java/program/Controller.java
-/home/alexander/Documents/IntellijProjects/TaskManager/src/main/java/program/tickable/Unit.java
 /home/alexander/Documents/IntellijProjects/TaskManager/src/main/java/program/CompSystem.java
+/home/alexander/Documents/IntellijProjects/TaskManager/src/main/java/program/unit/TaskGenerator.java
+/home/alexander/Documents/IntellijProjects/TaskManager/src/main/java/program/unit/SimplePlanner.java
+/home/alexander/Documents/IntellijProjects/TaskManager/src/main/java/program/Main.java
+/home/alexander/Documents/IntellijProjects/TaskManager/src/main/java/program/Model.java
+/home/alexander/Documents/IntellijProjects/TaskManager/src/main/java/program/unit/ProcessorPlanner.java
+/home/alexander/Documents/IntellijProjects/TaskManager/src/main/java/program/FormData.java

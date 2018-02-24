@@ -33,19 +33,15 @@ public class Processor extends Unit{
     @Override
     public void tick(double step) {
         if (task == null){
-            System.out.println("Processor "+id+" waiting ||"+(++num));
             return;
         }
 
         executeTask();
-        System.out.println("Processor "+id+" executed task  ||"+(++num));
     }
-
     private void executeTask() {
         getSystem().operCounter++;
         task.incOperDone();
         if (task.finshed()){
-            System.out.println("Task "+task+" finished");
             task = null;
             this.getSystem().taskCounter++;
         }

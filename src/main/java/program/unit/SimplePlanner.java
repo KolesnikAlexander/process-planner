@@ -12,7 +12,6 @@ public class SimplePlanner extends Unit {
 
     @Override
     protected void tick(double step) {
-        System.out.println("PLANNERRRRRRRRRRRRRRRRR");
         List<Task> tasks = this.getSystem().getTasks();
         if ((tasks == null)||(tasks.isEmpty()))
             return;
@@ -24,7 +23,6 @@ public class SimplePlanner extends Unit {
                     if (task.getProcessors().contains(processor.getId())){
                         processor.setTask(task);
                         tasks.remove(task);
-                        System.out.println("PROCESSOR: "+processor);
                         break;
                     }
                 }
@@ -32,7 +30,5 @@ public class SimplePlanner extends Unit {
             }
 
         }
-
-        System.out.println("SIMPLE PLANNER PLANNED TASK +++++++++++++++");
     }
 }

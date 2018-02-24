@@ -34,18 +34,6 @@ public class Launcher {
 
         system.run();
 
-        System.out.println("Tasks done: "+system.taskCounter);
-        System.out.println("Tasks amount: "+system.taskAmount);
-
-        System.out.println("Operations done: "+system.operCounter);
-        int operAmount = (data.getPrFrequencies().get(0)
-                +data.getPrFrequencies().get(1)
-                +data.getPrFrequencies().get(2)
-                +data.getPrFrequencies().get(3)
-                +data.getPrFrequencies().get(4))
-                    *10000;
-        System.out.println("Operations amount: "+operAmount);
-
         return makeResult(system, data);
 
     }

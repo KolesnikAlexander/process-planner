@@ -18,7 +18,6 @@ public class TaskGenerator extends Unit{
         this.maxCompl = maxCompl;
         this.taskHappenProbability = taskHappenProbability;
 
-        System.out.println("TASK GENERATOR{ MIN = "+minCompl+", MAX = "+maxCompl+" }");
     }
 
     @Override
@@ -30,7 +29,6 @@ public class TaskGenerator extends Unit{
         Set<Integer> procesors = generateProcessors();
         Task task = new Task(complexity, procesors);
         this.getSystem().tasks.add(task);
-        System.out.println("Task generated, complexity:"+complexity+",processors: "+procesors+" ------------ || "+(++num));
         this.getSystem().taskAmount++;
     }
 
@@ -48,7 +46,6 @@ public class TaskGenerator extends Unit{
 
     private int generateComplexity() {
         return ThreadLocalRandom.current().nextInt(minCompl, maxCompl + 1);
-       // return  minCompl + new Random().nextInt(maxCompl+1); // [low..upp];
     }
 
 }
